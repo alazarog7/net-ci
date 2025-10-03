@@ -24,8 +24,8 @@ jobs:
         username: ${{ vars.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
-    # Step 3: Debug Dockerfile presence (helpful for debugging)
-    - name: Debug Dockerfile presence
+    # Step 3: Figure out the path location
+    - name: Figure out the path location
       run: |
         echo "Show location"
         pwd
