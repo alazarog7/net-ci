@@ -39,6 +39,10 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore ./Calculator/Calculator.sln
 
+    - name: content restored
+      run: |
+        ls ./Calculator/Calculator.Test/
+
     # Step 5: Do unit tests
     - name: Run Unit Tests
       run: dotnet test ./Calculator/Calculator.Test/Calculator.Test.csproj -c Release --no-build --verbosity normal
