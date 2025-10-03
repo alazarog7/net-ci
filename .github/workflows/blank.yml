@@ -11,7 +11,7 @@ on:
 jobs:
   validate-and-push:
     runs-on: self-hosted
-    
+
     steps:
     # Step 1: Checkout the repository
     - name: Checkout code
@@ -20,7 +20,6 @@ jobs:
     # Step 3: Debug Dockerfile presence (helpful for debugging)
     - name: Debug Dockerfile presence
       run: |
-        echo "Show location"
         pwd
     # Step 4: Restore
     - name: Restore dependencies
