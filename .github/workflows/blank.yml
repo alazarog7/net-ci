@@ -10,25 +10,12 @@ on:
 
 jobs:
   validate-and-push:
-    runs-on: ubuntu-latest
-    environment: devops-training
-
+    runs-on: self-hosted
+    
     steps:
     # Step 1: Checkout the repository
     - name: Checkout code
       uses: actions/checkout@v4
-
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: '8.0.x'
-
-    # Step 2: Log in to Docker Hub
-    - name: Log in to Docker Hub
-      uses: docker/login-action@v2
-      with:
-        username: ${{ vars.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
 
     # Step 3: Debug Dockerfile presence (helpful for debugging)
     - name: Debug Dockerfile presence
@@ -49,6 +36,15 @@ jobs:
     # Step 5: Do unit tests
     - name: Run Unit Tests
       run: dotnet test ./Calculator/Calculator.Test/Calculator.Test.csproj -c Release --no-build --verbosity normal
+
+    - name: WSL
+      run: wsl
+
+    - name: Log in to Docker Hub
+      uses: docker/login-action@v2
+      with:
+        username: ${{ vars.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
 
     # Step 6: Build and Tag Docker Image
     - name: Build and Tag Docker Image
