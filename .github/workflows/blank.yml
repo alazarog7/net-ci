@@ -36,7 +36,7 @@ jobs:
 
     # Step 5: Do unit tests
     - name: Run Unit Tests
-      run: dotnet test ./Calculator/Calculator.sln --no-build --verbosity normal
+      run: dotnet test ./Calculator/Calculator.sln -c Release --no-build --verbosity normal
 
     # Step 6: Build and Tag Docker Image
     - name: Build and Tag Docker Image
