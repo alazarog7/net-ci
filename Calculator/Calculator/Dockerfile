@@ -7,7 +7,7 @@ COPY ./Calculator/Calculator/*.csproj ./
 RUN dotnet restore
 
 # Copy the rest of the source code and build the app
-COPY . ./
+COPY ./Calculator ./
 RUN dotnet publish -c Release -o /app/publish
 
 # Use the ASP.NET runtime image for running the app
