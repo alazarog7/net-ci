@@ -20,6 +20,7 @@ jobs:
     # Step 3: Debug Dockerfile presence (helpful for debugging)
     - name: Debug Dockerfile presence
       run: |
+        Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
         pwd
     # Step 4: Restore
     - name: Restore dependencies
